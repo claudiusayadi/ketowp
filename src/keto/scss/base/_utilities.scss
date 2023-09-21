@@ -1,0 +1,56 @@
+/* UTILITY CLASSES */
+
+.sticky-xs {
+	position: sticky;
+
+	&.top-xs {
+		inset-block-start: 5%;
+		padding: 5%;
+		border: 1px solid var(--grey-2);
+		border-radius: var(--radius-s);
+	}
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.x-flip,
+.x-flip > div {
+	scale: -1;
+}
+
+.x-flip-on-hover,
+.x-flip-on-hover > div {
+	&:hover {
+		scale: -1;
+	}
+}
+
+.y-flip,
+.y-flip > div {
+	scale: y -1;
+}
+
+.y-flip-on-hover,
+.y-flip-on-hover > div {
+	&:hover {
+		scale: y -1;
+	}
+}
+
+.xy-flip,
+.xy-flip > div {
+	scale: -1 -1;
+}
+
+.xy-flip-on-hover,
+.xy-flip-on-hover > div {
+	&:hover {
+		scale: -1 -1;
+	}
+}

@@ -1,0 +1,52 @@
+{
+  "name": "KetoWP",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Adun is a simple and secure WordPress plugin that houses our Agency's in-house custom design (powered by our popular #1 variable-first atomic design framework - KetoCSS). It also has all our pre and post-deployment snippets.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/keto/js/colors.js & node src/keto/js/container.js & node src/keto/js/typography.js",
+    "build": "postcss src/keto/scss/keto.scss -o assets/css/keto.min.css --w",
+    "start": "pnpm dev & pnpm build"
+  },
+  "keywords": [
+    "ketoCSS",
+    "adun.studio",
+    "bricks builder",
+    "bricks child theme",
+    "sass",
+    "ecommerce",
+    "modern css",
+    "responsive design",
+    "postcss-purgecss",
+    "sass-starter-template",
+    "postcss",
+    "postcss-sass",
+    "cssnano",
+    "postcss-preset-env",
+    "grid",
+    "flexbox"
+  ],
+  "author": "Claudius A.",
+  "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@csstools/postcss-sass": "^5.0.1",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@prettier/plugin-php": "^0.20.1",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.29",
+    "postcss-cli": "^10.1.0",
+    "postcss-preset-env": "^9.1.3",
+    "postcss-scss": "^4.0.8",
+    "values.js": "^2.1.1"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.0"
+  }
+}

@@ -1,0 +1,28 @@
+@use "../abstracts/workers" as *;
+
+@mixin links {
+	@each $color, $value in $colors {
+		// CHECKS
+		@if $color ==
+			"base" or
+			$color ==
+			"alt" or
+			$color ==
+			"action" or
+			$color ==
+			"white" or
+			$color ==
+			"black"
+		{
+			.link-#{$color},
+			a.link-#{$color} {
+				--bg: transparent;
+				--color: var(--#{$color});
+				color: var(--color);
+				background-color: var(--bg);
+			}
+		}
+	}
+}
+
+@include links;

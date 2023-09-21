@@ -1,0 +1,12 @@
+/* DO NOT TOUCH */
+
+$phone: 549.98px;
+$tablet: 767.98px;
+$laptop: 991.98px;
+$desktop: 1023.98px;
+
+@mixin up($width) {
+	@media only screen and (width >= $width) {
+		@content;
+	}
+}

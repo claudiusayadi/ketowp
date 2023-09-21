@@ -1,0 +1,17 @@
+{
+	"trailingComma": "all",
+	"[php]": {
+		"editor.formatOnSave": true
+	},
+
+	"overrides": [
+		{
+			"files": "**/*.php",
+			"options": {
+				"parser": "php",
+				"plugins": ["@prettier/plugin-php"],
+				"phpVersion": "8.2"
+			}
+		}
+	]
+}
