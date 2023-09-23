@@ -1,27 +1,21 @@
 /* INTER */
 
 @font-face {
-	font-display: fallback;
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 400;
-	src: url("https://dealsomart.com/wp-content/uploads/2023/07/Inter-Regular.woff2") format("woff2"), url("https://dealsomart.com/wp-content/uploads/2023/07/Inter-Regular.woff") format("woff");
+  font-display: fallback;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("./inter-400.woff2") format("woff2"),
+    url("./inter-400.woff") format("woff");
 }
 
 @font-face {
-	font-display: fallback;
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 700;
-	src: url("https://dealsomart.com/wp-content/uploads/2023/07/Inter-Bold.woff2") format("woff2"),url("https://dealsomart.com/wp-content/uploads/2023/07/Inter-Bold.woff") format("woff");
-}
-
-/* REAL TEXT */
-
-@font-face {
-	font-display: swap;
-	font-family: "Real Text";
-	font-style: normal;
-	font-weight: 900;
-	src: url("https://dealsomart.com/wp-content/uploads/2023/07/Real-Text-Black.woff2") format("woff2"), url("https://dealsomart.com/wp-content/uploads/2023/07/Real-Text-Black.woff") format("woff");
+  font-display: fallback;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url("./inter-700.woff2") format("woff2"),
+    url("./inter-700.woff") format("woff");
 }

@@ -13,13 +13,15 @@
   flex-direction: column;
   gap: var(--gap);
 
-  nav.top-menu {
-    display: none;
+  .top-menu {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-areas: notifications;
 
     @include up($tablet) {
       display: grid;
       grid-template-columns: var(--grid-3);
-      grid-template-areas: "socials notifications top-links";
+      grid-template-areas: "socials notifications top-right";
       align-items: center;
       gap: var(--space-m);
       padding-inline: var(--space-s);
@@ -29,10 +31,18 @@
       color: var(--action-ultra-dark);
     }
 
-    .social-links {
-      grid-area: socials;
-      display: flex;
-      gap: var(--gap);
+    nav.socials {
+      display: none;
+
+      @include up($tablet) {
+        display: inline-block;
+        grid-area: socials;
+
+        ul {
+          display: flex;
+          gap: var(--gap);
+        }
+      }
     }
 
     .notifications {
@@ -40,15 +50,26 @@
       justify-self: center;
     }
 
-    .top-links {
-      grid-area: top-links;
-      justify-self: flex-end;
-      display: flex;
-      gap: var(--space-m);
+    .top-right {
+      display: none;
+
+      @include up($tablet) {
+        grid-area: top-right;
+        justify-self: flex-end;
+        display: flex;
+        gap: var(--space-m);
+
+        nav.top-links {
+          ul {
+            display: flex;
+            gap: var(--space-m);
+          }
+        }
+      }
     }
   }
 
-  nav.main-header {
+  .main-header {
     display: grid;
     grid-template-columns: var(--grid-2);
     grid-template-areas: "logo mobile-menu ";
@@ -58,7 +79,7 @@
 
     @include up($tablet) {
       grid-template-columns: var(--grid-3);
-      grid-template-areas: "logo main-menu user-links";
+      grid-template-areas: "logo main-menu user-menu";
     }
 
     figure.logo-wrapper {
@@ -72,178 +93,42 @@
       }
     }
 
-    ul.main-menu {
+    nav.main-menu {
       display: none;
 
       @include up($tablet) {
         grid-area: main-menu;
         justify-self: center;
-        display: flex;
-        align-items: center;
-        gap: var(--space-xl);
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-      }
+        display: inline-block;
 
-      li {
-        max-width: fit-content;
-        width: 100%;
-
-        ul.brxe-div.brx-dropdown-content {
-          background-color: var(--action-ultra-light);
-          gap: 0.8em;
-          width: 100%;
-          min-width: 30rem;
-          left: 50%;
-          transform: translateX(-50%);
-          padding: 2em;
-          box-shadow: var(--shadow-xl) var(--action);
-          border-radius: var(--radius-m);
-
-          // Sub-menu divs (2nd, 3rd, etc) before overflow
-          li.brxe-dropdown {
-            > .brx-dropdown-content {
-              left: 25rem;
-              top: 0;
-              background-color: var(--action-ultra-light);
-              gap: 0.8em;
-              width: 100%;
-              min-width: 30rem;
-              padding: 2em;
-              box-shadow: var(--shadow-xl) var(--action);
-              border-radius: var(--radius-m);
-            }
-          }
-        }
-
-        // Caret SVG
-        .brx-submenu-toggle {
-          button {
-            display: inline-block;
-
-            svg {
-              display: inline-block;
-              vertical-align: middle;
-              max-inline-size: var(--space-m);
-            }
-          }
+        ul {
+          display: flex;
+          align-items: center;
+          gap: var(--space-xl);
+          padding: 0;
+          margin: 0;
         }
       }
     }
 
-    .user-links {
+    nav.user-menu {
       display: none;
 
       @include up($tablet) {
-        grid-area: user-links;
+        display: inline-block;
+        grid-area: user-menu;
         justify-self: flex-end;
-        display: flex;
-        align-items: center;
-        gap: var(--space-m);
-      }
-    }
 
-    .mobile-menu {
-      grid-area: mobile-menu;
-      justify-self: flex-end;
-      display: flex;
-      align-items: center;
-      gap: var(--space-m);
-
-      @include up($tablet) {
-        display: none;
-      }
-
-      button {
-        display: flex;
-        align-items: center;
-        padding: var(--gap);
-        border: 0;
-        border-radius: var(--radius-s);
-        width: fit-content;
-      }
-
-      .open-menu {
-        background-color: var(--action-ultra-light);
-      }
-
-      &__wrapper {
-        display: none;
-      }
-
-      &__backdrop {
-        position: fixed;
-        inset: 0;
-        background-color: var(--black-trans-5);
-        z-index: 99;
-      }
-
-      &__panel {
-        padding: var(--space-m);
-        background-color: var(--action-ultra-light);
-        width: 85%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-m);
-
-        .close-menu {
-          position: absolute;
-          top: var(--gap);
-          right: var(--gap);
-          background-color: var(--action-light);
-        }
-
-        .social-links {
+        ul {
           display: flex;
-          gap: var(--space-m);
-        }
-
-        .top-links {
-          display: flex;
-          flex-direction: column;
+          align-items: center;
           gap: var(--space-m);
         }
       }
     }
   }
 
-  form[role="search"] {
-    inline-size: 100%;
-    max-inline-size: 32rem;
-    display: inline-block !important;
-
-    input[type="search"] {
-      width: 100%;
-      border: 1px solid var(--grey-2);
-      border-radius: var(--gap);
-      position: relative;
-      min-block-size: 2.5em;
-    }
-
-    button[type="submit"] {
-      position: absolute;
-      top: 0;
-      right: 0;
-      min-block-size: 2.5em;
-    }
-  }
-
-  svg {
-    max-inline-size: var(--text-xl);
-    max-block-size: var(--text-xl);
-  }
-
-  ul {
-    list-style-type: none;
-  }
-
-  .brxe-shortcode {
+  .shortcode {
     max-inline-size: fit-content;
 
     .widget.widget-adsw-currency-selector {

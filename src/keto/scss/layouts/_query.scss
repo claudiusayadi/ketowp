@@ -1,0 +1,56 @@
+@use "../layouts/breakpoints" as *;
+
+.post-query {
+  display: grid;
+  grid-template-columns: var(--grid-2);
+  grid-template-rows: auto;
+  gap: var(--space-xl);
+  align-items: stretch;
+
+  @include up($tablet) {
+    grid-template-columns: var(--grid-3);
+  }
+
+  .post-card {
+    border: 2px solid var(--action-ultra-light);
+    background-color: var(--action-ultra-light);
+    text-align: center;
+
+    &:hover {
+      border-color: var(--action-light);
+      background-color: var(--action-light);
+    }
+
+    &.keto-card {
+      --flex-direction: column-reverse;
+      --border-radius: var(--radius-l);
+    }
+
+    .post-card__meta {
+      order: -1;
+      display: flex;
+      grid-area: 0.25em;
+      align-items: center;
+
+      ul {
+        display: flex;
+        gap: 0.15em;
+        align-items: c;
+
+        li {
+          flex-wrap: nowrap;
+
+          &:not(:last-child)::after {
+            content: attr(data-separator);
+            margin-left: var(--space-xs);
+          }
+
+          a {
+            position: relative;
+            z-index: 2;
+          }
+        }
+      }
+    }
+  }
+}

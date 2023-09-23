@@ -1,25 +1,37 @@
-main {
-	section:not(:first-child) .container {
-		padding-block-start: var(--space-4xl);
-	}
+#keto-content {
+  flex: 1;
+  position: relative;
+  max-inline-size: 100%;
+  inline-size: 100%;
 
-	.page-hero {
-		padding: var(--space-2xl);
-		background-color: var(--base);
-		border-radius: var(--radius-m);
+  section:not(:first-child) .container {
+    padding-block-start: var(--space-4xl);
+  }
 
-		.sub-hero {
-			display: flex;
-			margin-block-start: var(--gap);
-			gap: var(--space-xl);
-			justify-content: space-between;
-			align-items: center;
+  .page-hero {
+    padding: var(--space-2xl);
+    background-color: var(--base);
+    border-radius: var(--radius-m);
 
-			select {
-				border: 1px solid var(--grey-5);
-				border-radius: var(--radius-s);
-				padding: var(--gap);
-			}
-		}
-	}
+    .sub-hero {
+      display: flex;
+      margin-block-start: var(--gap);
+      gap: var(--space-xl);
+      justify-content: space-between;
+      align-items: center;
+
+      select.orderby {
+        border: 1px solid var(--grey-5);
+        border-radius: var(--radius-s);
+        padding: var(--gap);
+
+        option {
+          &:hover,
+          &:active {
+            background-color: var(--action-ultra-light);
+          }
+        }
+      }
+    }
+  }
 }

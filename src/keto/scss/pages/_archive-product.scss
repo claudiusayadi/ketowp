@@ -1,0 +1,63 @@
+@use "../layouts/breakpoints" as *;
+
+section.collection-page {
+  padding-block-start: var(--space-4xl);
+}
+
+.collections {
+  .container {
+    display: grid;
+    grid-template-columns: var(--grid-1);
+    align-items: stretch;
+    gap: var(--space-xl);
+
+    @include up($tablet) {
+      grid-template-columns: var(--grid-1-3);
+    }
+  }
+  .columns-3 {
+    display: grid;
+    grid-template-columns: var(--grid-2);
+    gap: var(--space-xl);
+    align-items: stretch;
+
+    @include up($tablet) {
+      grid-template-columns: var(--grid-3);
+    }
+
+    .product-card {
+      border: 2px solid;
+      border-image: linear-gradient(to right, var(--alt), var(--action)) 1;
+      padding: 5px;
+      text-align: left;
+
+      &.keto-card {
+        --flex-direction: column-reverse;
+        --box-shadow: 0;
+        align-items: flex-start;
+      }
+
+      &__head {
+        picture img {
+          border-radius: var(--radius-s);
+          max-height: 30rem;
+        }
+      }
+
+      &__body {
+        align-items: flex-start;
+
+        h3 {
+          font-family: var(--base-font);
+          font-weight: var(--weight-400);
+          font-size: inherit;
+          line-height: var(--line-m);
+        }
+      }
+
+      svg {
+        color: var(--alt);
+      }
+    }
+  }
+}

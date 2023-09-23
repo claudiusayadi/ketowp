@@ -1,0 +1,34 @@
+form[role="search"] {
+  inline-size: 100%;
+  max-inline-size: 32rem;
+  display: inline-block;
+  position: relative;
+
+  input[type="search"] {
+    padding-inline: 1em;
+    width: 100%;
+    border: 1px solid var(--grey-2);
+    border-radius: var(--gap);
+    position: relative;
+    min-block-size: 2.5em;
+    position: relative;
+  }
+
+  button[type="submit"] {
+    padding-inline: 1em;
+    background-color: transparent;
+    border-radius: var(--radius-s);
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-block-size: 2.5em;
+
+    &:hover {
+      background-color: var(--action-ultra-light);
+    }
+
+    svg {
+      font-size: var(--text-xl);
+    }
+  }
+}
