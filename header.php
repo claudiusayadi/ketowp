@@ -33,13 +33,33 @@
   <header id="keto-header">
     <div class="top-menu">
       <nav class="socials" aria-label="Socials">
-        <?php wp_nav_menu([
-            "menu" => "social-links",
-            "menu_class" => false,
-            "container" => false,
-            "fallback_cb" => false,
-            "theme_location" => "social-links",
-        ]); ?>
+        <ul>
+          <li>
+            <a href="">
+              <span class="iconify" data-icon="ri:facebook-fill"></span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="iconify" data-icon="ri:instagram-line"></span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="iconify" data-icon="ri:twitter-line"></span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="iconify" data-icon="ri:pinterest-line"></span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="iconify" data-icon="ri:youtube-line"></span>
+            </a>
+          </li>
+        </ul>
       </nav>
 
       <p class="notifications">NOTIFICATIONS</p>

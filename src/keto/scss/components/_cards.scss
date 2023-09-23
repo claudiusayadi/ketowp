@@ -36,8 +36,9 @@
 
 [class*="__body"] {
   --padding: var(--space-s);
-
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   gap: var(--gap);

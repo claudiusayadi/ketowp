@@ -5,7 +5,7 @@ export default {
     action: "#004aad",
   },
   fontFamily: {
-    "base-font": "Poppins",
+    "base-font": "Inter",
   },
   container: {
     minWidth: 320,

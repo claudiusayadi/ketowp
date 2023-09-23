@@ -24,8 +24,7 @@ if (empty($product) || !$product->is_visible()) {
     return;
 }
 ?>
-
-<li class="product-card keto-card">
+<li <?php wc_product_class("keto-card product-card", $product); ?>>
   <div class="product-card__body">
     <h3 class="product-card__title">
       <a class="clickable-card" href="<?php the_permalink(); ?>">
@@ -50,32 +49,31 @@ $sold = $product->get_stock_quantity(); ?>
       <span>
         <?php echo $sold_display; ?> sold
       </span>
+      <?php if ($average_rating != 0) { ?>
       <span>
         <span class="iconify" data-icon="ri:star-fill">
         </span>
         <?php echo $average_rating; ?>
       </span>
+      <?php } ?>
     </div>
 
-    <?php // Get price and savings percentage
-
-$price = $product->get_price_html(); ?>
+    <?php
+// Get price and savings percentage?
+?>
+    <?php $price = $product->get_price_html(); ?>
     <?php $regular_price = $product->get_regular_price(); ?>
     <?php $sale_price = $product->get_sale_price(); ?>
-
-    <?php if ($regular_price && $sale_price) {
-        $savings_percentage = round(
-            (($regular_price - $sale_price) / $regular_price) * 100,
-        );
-        $savings_display = $savings_percentage . "%";
-    } ?>
 
     <div class="price">
       <?php echo $price; ?>
     </div>
-    <?php if ($savings_percentage): ?>
+    <?php if ($regular_price && $sale_price): ?>
+    <?php $savings_percentage = round(
+        (($regular_price - $sale_price) / $regular_price) * 100,
+    ); ?>
     <span class="savings">
-      Save <?php echo $savings_display; ?>
+      Save <?php echo $savings_percentage . "%"; ?>
     </span>
     <?php endif; ?>
 
@@ -93,7 +91,7 @@ $price = $product->get_price_html(); ?>
 
     <?php
     require_once get_template_directory() . "/inc/geolocate.php";
-    ketowp_action();
+    echo do_shortcode("[geolocate]");
     ?>
 
 

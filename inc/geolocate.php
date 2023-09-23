@@ -11,18 +11,7 @@
  * Define action and its functionality.
  */
 
-function ketowp_action()
-{
-    do_action("ketowp_action");
-}
-
-/**
- * Register the action with WordPress.
- */
-
-add_action("ketowp_action", "geolocate_country");
-
-function geolocate_country()
+function geolocate_shortcode()
 {
     // Geolocation must be enabled in Woo Settings
     // Get an instance of the WC_Geolocation object class
@@ -32,5 +21,8 @@ function geolocate_country()
 
     // Get current user GeoIP Country
     $country = $user_geodata["country"];
-    echo '<span class="shipping">Ships to: ' . $country . "</span>";
+
+    // Return the HTML content as a string
+    return '<span class="shipping">Ships to: ' . $country . "</span>";
 }
+add_shortcode("geolocate", "geolocate_shortcode");

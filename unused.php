@@ -15,4 +15,6 @@
   </ul>
 </ul>
 
-<div class="price"><del></del><ins></ins></div>
+<div class="price"><del class="keto-card">
+
+  </del><ins></ins></div>
