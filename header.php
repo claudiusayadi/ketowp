@@ -1,12 +1,12 @@
 <?php
 /**
- * The header for our theme
+ * The template for displaying the header
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * Displays all of the head element and everything up until the "keto-content" main tag.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Adun_Studio
+ * @package adun_studio
  * @subpackage KetoWP
  * @since KetoWP 1.0
  */
@@ -35,37 +35,32 @@
       <nav class="socials" aria-label="Socials">
         <ul>
           <li>
-            <a href="">
-              <span class="iconify" data-icon="ri:facebook-fill"></span>
-            </a>
+            <?php echo do_shortcode("[facebook]"); ?>
           </li>
           <li>
-            <a href="">
-              <span class="iconify" data-icon="ri:instagram-line"></span>
-            </a>
+            <?php echo do_shortcode("[instagram]"); ?>
           </li>
           <li>
-            <a href="">
-              <span class="iconify" data-icon="ri:twitter-line"></span>
-            </a>
+            <?php echo do_shortcode("[twitter]"); ?>
           </li>
           <li>
-            <a href="">
-              <span class="iconify" data-icon="ri:pinterest-line"></span>
-            </a>
+            <?php echo do_shortcode("[pinterest]"); ?>
           </li>
           <li>
-            <a href="">
-              <span class="iconify" data-icon="ri:youtube-line"></span>
-            </a>
+            <?php echo do_shortcode("[youtube]"); ?>
           </li>
         </ul>
       </nav>
 
-      <p class="notifications">NOTIFICATIONS</p>
+      <p class="notifications">
+        <?php echo get_theme_mod("notification"); ?>
+      </p>
 
       <div class="top-right">
-        <div class="shortcode">Currency</div>
+        <div class="shortcode"><?php echo do_shortcode(
+            "[adsw_currency_switcher title=]",
+        ); ?>
+        </div>
         <nav class="top-links" aria-label="Top Links">
           <?php wp_nav_menu([
               "menu" => "top-links",
@@ -91,6 +86,13 @@
           <figcaption class="screen-reader-text">Home</figcaption>
         </picture>
       </figure>
+
+      <?php else: ?>
+      <div class="no-logo">
+        <h3><?php echo $site_name; ?></h3>
+        <p><?php echo $description; ?></p>
+        <figcaption class="screen-reader-text">Home</figcaption>
+      </div>
       <?php endif;
       ?>
 
@@ -109,7 +111,21 @@
           <li>
             <?php get_product_search_form(); ?>
           </li>
-          <li>Mini Cart</li>
+          <li id="mini-cart">
+
+            <a href="<?php echo esc_url(
+                wc_get_cart_url(),
+            ); ?>" aria-label="<?php _e("Mini Cart"); ?>" title="<?php _e(
+    "Mini Cart",
+); ?>">
+              <span class="cart-bag">
+                <span class="cart-bag__count">
+                  <?php echo WC()->cart->get_cart_contents_count(); ?>
+                </span>
+              </span>
+            </a>
+            </span>
+          </li>
         </ul>
       </nav>
     </div>

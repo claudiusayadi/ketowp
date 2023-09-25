@@ -11,15 +11,17 @@
 
 get_header(); ?>
 
-<section class="hero">
-  <div class="container"><?php get_template_part(
-      "/template-part/content/query",
-  ); ?>
-  </div>
-</section>
 
-<section class="category">
-  <div class="container">Categories</div>
-</section>
+<main id="keto-content">
 
+  <section class="hero">
+    <div class="container">
+      <?php include_once get_template_directory() . "/template-home.php"; ?>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">Categories</div>
+  </section>
+</main>
 <?php get_footer(); ?>

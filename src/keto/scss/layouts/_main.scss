@@ -1,8 +1,8 @@
-#keto-content {
+main#keto-content {
+  display: block;
   flex: 1;
   position: relative;
-  max-inline-size: 100%;
-  inline-size: 100%;
+  width: 100%;
 
   section:not(:first-child) .container {
     padding-block-start: var(--space-4xl);

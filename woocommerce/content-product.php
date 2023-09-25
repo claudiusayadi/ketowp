@@ -66,22 +66,27 @@ $sold = $product->get_stock_quantity(); ?>
     <?php $sale_price = $product->get_sale_price(); ?>
 
     <div class="price">
-      <?php echo $price; ?>
+      <span class="adsw_price_code">
+        <?php echo $price; ?>
+      </span>
     </div>
+
     <?php if ($regular_price && $sale_price): ?>
     <?php $savings_percentage = round(
         (($regular_price - $sale_price) / $regular_price) * 100,
     ); ?>
+
     <span class="savings">
       Save <?php echo $savings_percentage . "%"; ?>
     </span>
+
     <?php endif; ?>
 
     <div class="delivery">
       <?php $current_date = date("D, M j"); ?>
       <?php $delivery_date = date(
           "D, M j",
-          strtotime($current_date . " + " . rand(5, 10) . " days"),
+          strtotime($current_date . " + " . rand(10, 15) . " days"),
       ); ?>
       <span>Delivery:</span>
       <span>

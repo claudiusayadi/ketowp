@@ -207,6 +207,54 @@
     }
   }
 
+  #mini-cart {
+    a {
+      span.cart-bag {
+        strong {
+          position: relative;
+          display: inline-block;
+          border: 2px solid var(--action);
+          border-radius: var(--radius-xs);
+          font-weight: 700;
+          font-family: Helvetica, Arial, Sans-serif;
+          text-align: center;
+          vertical-align: middle;
+          width: 1.7em;
+          height: 1.7em;
+
+          &:after {
+            left: 50%;
+            bottom: 100%;
+            content: " ";
+            position: absolute;
+            height: 8px;
+            width: 14px;
+            margin-bottom: 0;
+            margin-left: -7px;
+            border: 2px solid var(--action);
+            border-radius: 10rem;
+            border-bottom: 0;
+            border-bottom-color: transparent;
+            pointer-events: none;
+            transition: height 0.1s ease-out;
+          }
+        }
+      }
+
+      &:hover {
+        span.cart-bag {
+          strong {
+            background-color: var(--action);
+            color: var(--white);
+
+            &::after {
+              height: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
   svg {
     font-size: var(--text-xl);
   }

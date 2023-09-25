@@ -110,7 +110,6 @@ require_once get_template_directory() . "/widget.php";
 require_once get_template_directory() . "/woocommerce/woo.php";
 require_once get_template_directory() . "/shortcodes/business.php";
 require_once get_template_directory() . "/inc/cleanup.php";
-require_once get_template_directory() . "/inc/options.php";
 
 /**
  * Enqueue scripts and styles.

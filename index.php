@@ -15,16 +15,19 @@
  */
 
 get_header(); ?>
+<main id="keto-content">
 
-<section class="hero">
-  <div class="container"><?php get_template_part(
-      "/template-part/content/query",
-  ); ?>
-  </div>
-</section>
 
-<section class="category">
-  <div class="container">Categories</div>
-</section>
+  <section class="hero">
+    <div class="container">
 
+      <?php get_template_part("/template-part/content/query"); ?>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">Categories</div>
+  </section>
+
+</main>
 <?php get_footer(); ?>

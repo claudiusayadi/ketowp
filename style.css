@@ -2,9 +2,9 @@
 /*
 Theme Name: KetoWP
 Theme URI: https://adun.studio/ketowp
-Author: Claudius A.
+Author: Claudius A. (adun.studio)
 Author URI: https://adun.studio/claudius
-Description: Our 2019 default theme is designed to show off the power of the block editor. It features custom styles for all the default blocks, and is built so that what you see in the editor looks like what you'll see on your website. KetoWP is designed to be adaptable to a wide range of websites, whether you’re running a photo blog, launching a new business, or supporting a non-profit. Featuring ample whitespace and modern sans-serif headlines paired with classic serif body text, it's built to be beautiful on all screen sizes.
+Description: KetoWP is a mobile-first, modern ecommerce performant WooCommerce theme developed by Claudius A., and maintained by the adun.studio team. The theme is powered by our in-house CSS Framework, KetoCSS - The #1 variable-first atomic design framework! Your product is unique, and so are you! But your users have only milliseconds to interact with your website. At adun.studio, we strive to deliver an optimized and personalized user experience that expresses this uniqueness and gets them hooked on brand loyalty forever. Our small, global team of agile design creatives and software engineers is obsessed with creating human-centered designs, immersive websites, and addictive digital experiences that will resonate deeply with your users. Our goal is simple - to boost your business growth and make your users happy! KetoWP is designed with this belief.
 Tested up to: 6.2
 Requires at least: 4.9.6
 Requires PHP: 5.2.4
@@ -12,5 +12,5 @@ Version: 1.0.
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: ketowp
-Tags: ecommerce, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready, block-patterns
+Tags: ecommerce, woocommerce, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready, block-patterns, flexible-header, css-grid
 */

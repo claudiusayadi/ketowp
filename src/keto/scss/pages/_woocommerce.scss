@@ -16,15 +16,17 @@
 }
 
 .price {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: var(--gap);
-  align-items: center;
+  .adsw_price_code {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--gap);
+    align-items: center;
 
-  &:not(del),
-  ins {
-    font-size: var(--text-xl);
-    text-decoration: none;
+    &:not(del),
+    ins {
+      font-size: var(--text-xl);
+      text-decoration: none;
+    }
   }
 
   del {

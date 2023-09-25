@@ -10,24 +10,24 @@
 @use "../layouts/grids" as *;
 
 :root {
-	/* COLOR SYSTEM */
-	@include colors;
+  /* COLOR SYSTEM */
+  @include colors;
 
-	/* TYPOGRAPHY SYSTEM */
-	@include fontFamily;
-	@include fluidType;
-	@include fontWeights;
-	@include lineHeights;
+  /* TYPOGRAPHY SYSTEM */
+  @include fontFamily;
+  @include fluidType;
+  @include fontWeights;
+  @include lineHeights;
 
-	/* SPACING SYSTEM */
-	@include spaces;
+  /* SPACING SYSTEM */
+  @include spaces;
 
-	/* GRID SYSTEM */
-	@include grids;
+  /* GRID SYSTEM */
+  @include grids;
 
-	/* UTILITY SYSTEM */
-	@include offsets;
-	@include containers;
-	@include radii;
-	@include shadows;
+  /* UTILITY SYSTEM */
+  @include offsets;
+  @include containers;
+  @include radii;
+  @include shadows;
 }

@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @snippet       Removes Title Prefix (e.g. Archives:) from output Titles
+ * @author       Claudius A.
+ * @compatible    WooCommerce 7
+ * @thanks - https://wordpress.stackexchange.com/questions/175884/how-to-customize-the-archive-title
+ */
+
 add_filter("get_the_archive_title", function ($title) {
     if (is_category()) {
         $title = single_cat_title("", false);
