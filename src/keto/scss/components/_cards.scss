@@ -3,7 +3,8 @@
 .keto-card {
   --flex-direction: column;
   --border-radius: var(--radius-s);
-  --shadow: var(--shadow-xl) --transition: all 300ms ease;
+  --shadow: var(--shadow-xl);
+  --transition: all 300ms ease;
 
   display: flex;
   flex-direction: var(--flex-direction);
