@@ -11,7 +11,8 @@
 
 get_header(); ?>
 
-<section class="page-title">
+<main id="keto-content" class="block flex-1 relative w-full">
+<section class="page-title py-8">
   <div class="container">
 
     <?php if (have_posts()):
@@ -19,34 +20,38 @@ get_header(); ?>
             the_post(); ?>
 
     <?php if (has_post_thumbnail()): ?>
-    <figure>
+    <figure class="mb-6">
       <picture>
         <?php the_post_thumbnail(); ?>
       </picture>
     </figure>
 
-    <div>
-      <h2><?php the_title(); ?></h2>
-      <p><?php the_content(); ?></p>
+    <div class="prose max-w-none">
+      <h1 class="text-3xl font-bold mb-4"><?php the_title(); ?></h1>
+      <div class="text-base leading-relaxed"><?php the_content(); ?></div>
     </div>
 
     <?php else: ?>
-    <h2><?php the_title(); ?></h2>
-    <p><?php the_content(); ?></p>
+    <div class="prose max-w-none">
+      <h1 class="text-3xl font-bold mb-4"><?php the_title(); ?></h1>
+      <div class="text-base leading-relaxed"><?php the_content(); ?></div>
+    </div>
     <?php endif; ?>
-    </article>
     <?php
         endwhile;
     else:
          ?>
-    <p>Nothing to show</p>
+    <p class="text-center text-gray-500">Nothing to show</p>
     <?php
     endif; ?>
   </div>
 </section>
 
-<section class="category">
-  <div class="container">Categories</div>
+<section class="category py-8">
+  <div class="container">
+    <div class="text-center">Categories</div>
+  </div>
 </section>
+</main>
 
 <?php get_footer(); ?>

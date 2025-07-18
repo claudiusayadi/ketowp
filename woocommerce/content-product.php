@@ -24,9 +24,9 @@ if (empty($product) || !$product->is_visible()) {
     return;
 }
 ?>
-<li <?php wc_product_class("keto-card product-card", $product); ?>>
-  <div class="product-card__body">
-    <h3 class="product-card__title">
+<li <?php wc_product_class("keto-card product-card border-2 border-gradient-to-r from-alt to-action p-1 text-left", $product); ?>>
+  <div class="product-card__body order-2 items-start">
+    <h3 class="product-card__title font-base font-normal text-base leading-normal">
       <a class="clickable-card" href="<?php the_permalink(); ?>">
         <?php the_title(); ?>
       </a>
@@ -45,13 +45,13 @@ $sold = $product->get_stock_quantity(); ?>
         $sold_display = number_format($sold);
     } ?>
 
-    <div class="rating">
+    <div class="rating text-sm flex flex-nowrap w-full gap-4 items-center">
       <span>
         <?php echo $sold_display; ?> sold
       </span>
       <?php if ($average_rating != 0) { ?>
       <span>
-        <span class="iconify" data-icon="ri:star-fill">
+        <span class="iconify text-alt" data-icon="ri:star-fill">
         </span>
         <?php echo $average_rating; ?>
       </span>
@@ -65,8 +65,8 @@ $sold = $product->get_stock_quantity(); ?>
     <?php $regular_price = $product->get_regular_price(); ?>
     <?php $sale_price = $product->get_sale_price(); ?>
 
-    <div class="price">
-      <span class="adsw_price_code">
+    <div class="price mb-2">
+      <span class="adsw_price_code flex flex-row-reverse gap-2 items-center">
         <?php echo $price; ?>
       </span>
     </div>
@@ -76,20 +76,20 @@ $sold = $product->get_stock_quantity(); ?>
         (($regular_price - $sale_price) / $regular_price) * 100,
     ); ?>
 
-    <span class="savings">
+    <span class="savings bg-base-200 px-2 py-1 rounded-sm text-sm">
       Save <?php echo $savings_percentage . "%"; ?>
     </span>
 
     <?php endif; ?>
 
-    <div class="delivery">
+    <div class="delivery flex items-center gap-2 mt-2">
       <?php $current_date = date("D, M j"); ?>
       <?php $delivery_date = date(
           "D, M j",
           strtotime($current_date . " + " . rand(10, 15) . " days"),
       ); ?>
       <span>Delivery:</span>
-      <span>
+      <span class="font-bold">
         <?php echo $delivery_date; ?>
       </span>
     </div>
@@ -102,10 +102,11 @@ $sold = $product->get_stock_quantity(); ?>
 
   </div>
 
-  <figure class="product-card__head">
+  <figure class="product-card__head order-1">
     <picture>
       <?php the_post_thumbnail("medium", [
           "alt" => the_title_attribute("echo", false),
+          "class" => "rounded-sm max-h-80 object-cover",
       ]); ?>
     </picture>
     <figcaption class="screen-reader-text"><?php the_title(); ?></figcaption>

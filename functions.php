@@ -118,8 +118,8 @@ function ketowp_scripts()
 {
     wp_enqueue_style(
         "ketowp",
-        get_stylesheet_directory_uri() . "/assets/css/keto.min.css",
-        filemtime(get_template_directory() . "/assets/css/keto.min.css"),
+        get_stylesheet_directory_uri() . "/assets/css/style.css",
+        filemtime(get_template_directory() . "/assets/css/style.css"),
         "all",
     );
 

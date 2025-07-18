@@ -36,7 +36,7 @@ if ($total <= 1) {
     return;
 }
 ?>
-<nav class="pagination">
+<nav class="pagination w-full max-w-full">
   <?php echo paginate_links(
       apply_filters("woocommerce_pagination_args", [
           // WPCS: XSS ok.
@@ -46,15 +46,15 @@ if ($total <= 1) {
           "current" => max(1, $current),
           "total" => $total,
           "prev_text" => is_rtl()
-              ? '<span class="iconify" data-icon="ri:arrow-right-s-line">
+              ? '<span class="iconify text-xl" data-icon="ri:arrow-right-s-line">
 					</span>'
-              : '<span class="iconify" data-icon="ri:arrow-left-s-line">
+              : '<span class="iconify text-xl" data-icon="ri:arrow-left-s-line">
 					</span>',
 
           "next_text" => is_rtl()
-              ? '<span class="iconify" data-icon="ri:arrow-left-s-line">
+              ? '<span class="iconify text-xl" data-icon="ri:arrow-left-s-line">
 							</span>'
-              : '<span class="iconify" data-icon="ri:arrow-right-s-line">
+              : '<span class="iconify text-xl" data-icon="ri:arrow-right-s-line">
 							</span>',
           "type" => "list",
           "end_size" => 2,

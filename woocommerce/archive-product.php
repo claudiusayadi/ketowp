@@ -31,24 +31,26 @@ remove_action("woocommerce_before_main_content", "woocommerce_breadcrumb", 20);
  */
 do_action("woocommerce_before_main_content");
 ?>
-<section class="collection-page">
-  <div class="container page-hero">
-    <h1 class="page-title">
+<section class="collection-page pt-4xl">
+  <div class="container">
+    <div class="bg-base rounded-lg p-2xl mb-8">
+      <h1 class="text-3xl font-bold mb-4">
       <?php echo get_the_archive_title("", false); ?>
-    </h1>
-    <div class="sub-hero">
+      </h1>
+      <div class="flex justify-between items-center gap-xl">
       <?php
       // Add Breadcrumb
       woocommerce_breadcrumb();
       // Add Catalog Ordering
       woocommerce_catalog_ordering();
       ?>
+      </div>
     </div>
   </div>
 </section>
 
 <?php if (woocommerce_product_loop()) { ?>
-<section class="wc-notices">
+<section class="wc-notices py-4">
   <div class="container">
 
     <?php
@@ -78,8 +80,9 @@ do_action("woocommerce_before_main_content");
   </div>
 </section>
 
-<section class="collections">
+<section class="collections py-8">
   <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] gap-xl items-start">
 
     <?php
     /**
@@ -90,7 +93,8 @@ do_action("woocommerce_before_main_content");
     ?>
     <?php do_action("woocommerce_sidebar"); ?>
 
-    <div class="products">
+      <div class="products">
+
       <?php
       woocommerce_product_loop_start();
 
@@ -130,6 +134,7 @@ do_action("woocommerce_before_main_content");
      */
     do_action("woocommerce_no_products_found");} ?>
 
+    </div>
     </div>
   </div>
 </section>

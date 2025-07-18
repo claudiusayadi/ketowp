@@ -11,22 +11,26 @@
 
 get_header(); ?>
 
-<main id="content">
-  <section class="not-found">
+<main id="keto-content" class="block flex-1 relative w-full">
+  <section class="not-found py-16">
     <div class="container">
-      <h1 class="page-title"><?php _e(
+      <div class="text-center max-w-2xl mx-auto">
+        <h1 class="text-4xl font-bold mb-6"><?php _e(
           "Oops! That page can&rsquo;t be found.",
           "ketowp",
       ); ?></h1>
 
-      <div class="page-content">
-        <p>
+        <div class="page-content">
+          <p class="text-lg mb-8">
           <?php _e(
               "It looks like nothing was found at this location. Maybe try a search?",
               "ketowp",
           ); ?>
-        </p>
-        <?php get_search_form(); ?>
+          </p>
+          <div class="max-w-md mx-auto">
+            <?php get_search_form(); ?>
+          </div>
+        </div>
       </div>
     </div>
   </section>

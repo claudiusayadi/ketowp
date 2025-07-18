@@ -13,14 +13,16 @@
 ?>
 
 </main>
-<footer id="keto-footer">
+<footer id="keto-footer" class="bg-cover bg-center flex-shrink-0 mt-auto relative w-full">
 
-  <section class="footer-widgets">
-    <div class="container">Footer Widgets
+  <section class="footer-widgets py-8">
+    <div class="container">
+      <div class="text-center">Footer Widgets</div>
     </div>
   </section>
-  <section class="copyright">
-    <div class="container">&copy; 2023
+  <section class="copyright py-4 bg-gray-100">
+    <div class="container">
+      <div class="text-center text-sm">&copy; 2023</div>
     </div>
   </section>
 

@@ -15,18 +15,20 @@
  */
 
 get_header(); ?>
-<main id="keto-content">
+<main id="keto-content" class="block flex-1 relative w-full">
 
 
-  <section class="hero">
+  <section class="hero py-8">
     <div class="container">
 
       <?php get_template_part("/template-part/content/query"); ?>
     </div>
   </section>
 
-  <section class="category">
-    <div class="container">Categories</div>
+  <section class="category py-8">
+    <div class="container">
+      <div class="text-center">Categories</div>
+    </div>
   </section>
 
 </main>
