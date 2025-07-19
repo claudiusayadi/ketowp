@@ -31,13 +31,13 @@ remove_action("woocommerce_before_main_content", "woocommerce_breadcrumb", 20);
  */
 do_action("woocommerce_before_main_content");
 ?>
-<section class="collection-page pt-4xl">
+<section class="pt-16">
   <div class="container">
     <div class="bg-base rounded-lg p-2xl mb-8">
       <h1 class="text-3xl font-bold mb-4">
       <?php echo get_the_archive_title("", false); ?>
       </h1>
-      <div class="flex justify-between items-center gap-xl">
+      <div class="flex justify-between items-center gap-4">
       <?php
       // Add Breadcrumb
       woocommerce_breadcrumb();
@@ -50,7 +50,7 @@ do_action("woocommerce_before_main_content");
 </section>
 
 <?php if (woocommerce_product_loop()) { ?>
-<section class="wc-notices py-4">
+<section class="py-4">
   <div class="container">
 
     <?php
@@ -80,9 +80,9 @@ do_action("woocommerce_before_main_content");
   </div>
 </section>
 
-<section class="collections py-8">
+<section class="py-8">
   <div class="container">
-    <div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] gap-xl items-start">
+    <div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] gap-8 items-start">
 
     <?php
     /**
@@ -93,7 +93,7 @@ do_action("woocommerce_before_main_content");
     ?>
     <?php do_action("woocommerce_sidebar"); ?>
 
-      <div class="products">
+      <div>
 
       <?php
       woocommerce_product_loop_start();

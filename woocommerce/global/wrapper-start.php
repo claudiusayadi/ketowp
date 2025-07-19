@@ -18,4 +18,4 @@
 if (!defined("ABSPATH")) {
     exit(); // Exit if accessed directly
 } ?>
-<main id="keto-content" role="main">
+<main id="site-content" role="main">

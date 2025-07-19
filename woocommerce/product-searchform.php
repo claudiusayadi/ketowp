@@ -36,13 +36,13 @@ $placeholder =
         ? $alternate_placeholder
         : $default_placeholder;
 ?>
-<form class="wc-search-form w-full max-w-lg inline-block relative" role="search" method="get"
+<form class="w-full max-w-lg inline-block relative" role="search" method="get"
   action="<?php echo esc_url(home_url("/")); ?>">
   <label class="screen-reader-text" for="<?php echo $input_id; ?>"><?php esc_html_e(
     "Search &hellip;",
     "woocommerce",
 ); ?></label>
-  <input type="search" id="<?php echo $input_id; ?>" class="wc-search-field px-4 w-full border border-gray-300 rounded-lg relative min-h-[2.5em]"
+  <input type="search" id="<?php echo $input_id; ?>" class="px-4 w-full border border-gray-300 rounded-lg relative min-h-[2.5em]"
     placeholder="<?php echo $placeholder; ?>" value="<?php echo get_search_query(); ?>" name="s" />
   <button type="submit" class="px-4 bg-transparent rounded-sm absolute top-0 right-0 min-h-[2.5em] hover:bg-action-50" value="<?php echo esc_attr_x(
       "Search",

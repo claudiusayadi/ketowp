@@ -10,7 +10,7 @@ add_action(
 // overwrite existing output content wrapper function
 function woocommerce_output_content_wrapper()
 {
-    echo '<main id="keto-content" role="main">';
+    echo '<main id="site-content" role="main">';
 }
 
 add_action(

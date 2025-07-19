@@ -36,7 +36,7 @@ if ($total <= 1) {
     return;
 }
 ?>
-<nav class="pagination w-full max-w-full">
+<nav class="w-full max-w-full">
   <?php echo paginate_links(
       apply_filters("woocommerce_pagination_args", [
           // WPCS: XSS ok.

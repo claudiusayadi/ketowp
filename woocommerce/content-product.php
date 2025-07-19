@@ -24,28 +24,25 @@ if (empty($product) || !$product->is_visible()) {
     return;
 }
 ?>
-<li <?php wc_product_class("keto-card product-card border-2 border-gradient-to-r from-alt to-action p-1 text-left", $product); ?>>
-  <div class="product-card__body order-2 items-start">
-    <h3 class="product-card__title font-base font-normal text-base leading-normal">
-      <a class="clickable-card" href="<?php the_permalink(); ?>">
+<li <?php wc_product_class("flex flex-col relative bg-white border-2 border-gray-200 hover:border-action p-4 text-left rounded-sm shadow-lg overflow-hidden transition-all", $product); ?>>
+  <div class="order-2 items-start">
+    <h3 class="font-base font-normal text-base leading-normal mb-2">
+      <a href="<?php the_permalink(); ?>">
         <?php the_title(); ?>
       </a>
     </h3>
 
-    <?php // Get average rating
-
-$average_rating = number_format($product->get_average_rating(), 1); ?>
-
-    <?php // Get sold and round
-
-$sold = $product->get_stock_quantity(); ?>
+    <?php 
+    $average_rating = number_format($product->get_average_rating(), 1);
+    $sold = $product->get_stock_quantity(); 
+    ?>
     <?php if ($sold >= 1000) {
         $sold_display = number_format($sold / 1000, 1) . "k+";
     } else {
         $sold_display = number_format($sold);
     } ?>
 
-    <div class="rating text-sm flex flex-nowrap w-full gap-4 items-center">
+    <div class="text-sm flex flex-nowrap w-full gap-4 items-center mb-2">
       <span>
         <?php echo $sold_display; ?> sold
       </span>
@@ -58,15 +55,14 @@ $sold = $product->get_stock_quantity(); ?>
       <?php } ?>
     </div>
 
-    <?php
-// Get price and savings percentage?
-?>
-    <?php $price = $product->get_price_html(); ?>
-    <?php $regular_price = $product->get_regular_price(); ?>
-    <?php $sale_price = $product->get_sale_price(); ?>
+    <?php 
+    $price = $product->get_price_html();
+    $regular_price = $product->get_regular_price();
+    $sale_price = $product->get_sale_price();
+    ?>
 
-    <div class="price mb-2">
-      <span class="adsw_price_code flex flex-row-reverse gap-2 items-center">
+    <div class="mb-2">
+      <span class="flex flex-row-reverse gap-2 items-center">
         <?php echo $price; ?>
       </span>
     </div>
@@ -76,13 +72,13 @@ $sold = $product->get_stock_quantity(); ?>
         (($regular_price - $sale_price) / $regular_price) * 100,
     ); ?>
 
-    <span class="savings bg-base-200 px-2 py-1 rounded-sm text-sm">
+    <span class="bg-base-200 px-2 py-1 rounded-sm text-sm mb-2 inline-block">
       Save <?php echo $savings_percentage . "%"; ?>
     </span>
 
     <?php endif; ?>
 
-    <div class="delivery flex items-center gap-2 mt-2">
+    <div class="flex items-center gap-2 mt-2">
       <?php $current_date = date("D, M j"); ?>
       <?php $delivery_date = date(
           "D, M j",
@@ -98,11 +94,9 @@ $sold = $product->get_stock_quantity(); ?>
     require_once get_template_directory() . "/inc/geolocate.php";
     echo do_shortcode("[geolocate]");
     ?>
-
-
   </div>
 
-  <figure class="product-card__head order-1">
+  <figure class="order-1 mb-4">
     <picture>
       <?php the_post_thumbnail("medium", [
           "alt" => the_title_attribute("echo", false),

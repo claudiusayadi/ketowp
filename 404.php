@@ -11,8 +11,8 @@
 
 get_header(); ?>
 
-<main id="keto-content" class="block flex-1 relative w-full">
-  <section class="not-found py-16">
+<main id="site-content" class="block flex-1 relative w-full">
+  <section class="py-16">
     <div class="container">
       <div class="text-center max-w-2xl mx-auto">
         <h1 class="text-4xl font-bold mb-6"><?php _e(
@@ -20,7 +20,7 @@ get_header(); ?>
           "ketowp",
       ); ?></h1>
 
-        <div class="page-content">
+        <div>
           <p class="text-lg mb-8">
           <?php _e(
               "It looks like nothing was found at this location. Maybe try a search?",

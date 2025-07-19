@@ -10,10 +10,10 @@ function ajax_mini_cart($fragments)
 
     ob_start();
     ?>
-<span class="cart-bag__count">
+<span class="cart-count">
   <?php echo WC()->cart->get_cart_contents_count(); ?>
 </span>
 <?php
-$fragments["span.cart-bag__count"] = ob_get_clean();
+$fragments["span.cart-count"] = ob_get_clean();
 return $fragments;
 }

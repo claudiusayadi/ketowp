@@ -5,13 +5,13 @@
           the_post(); ?>
 
   <li role="listitem" aria-label="Post">
-    <article class="keto-card bg-action-50 border-2 border-action-50 text-center hover:bg-action-100 hover:border-action-100 transition-all">
-      <div class="post-card__body order-2">
-        <a class="clickable-card" href="<?php the_permalink(); ?>"
+    <article class="flex flex-col relative bg-action-50 border-2 border-action-50 text-center hover:bg-action-100 hover:border-action-100 transition-all rounded-sm shadow-lg overflow-hidden">
+      <div class="order-2 p-4">
+        <a href="<?php the_permalink(); ?>"
           aria-label="Read more about <?php the_title_attribute(); ?>">
           <h2 class="text-xl font-bold mb-2"><?php the_title(); ?></h2>
         </a>
-        <div class="post-card__meta -order-1 flex items-center gap-1 mb-2">
+        <div class="-order-1 flex items-center gap-1 mb-2">
           <ul role="list" aria-label="Post categories">
             <?php
             $taxonomies = get_post_taxonomies();
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <figure class="post-card__head order-1">
+      <figure class="order-1">
         <picture>
           <?php the_post_thumbnail(); ?>
         </picture>

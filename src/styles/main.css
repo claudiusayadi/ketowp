@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles */
 @layer base {
   html {
     font-size: 62.5%;
@@ -15,7 +14,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Focus styles */
   :focus,
   button:focus {
     @apply outline-2 outline-offset-2 outline-gray-500 rounded-sm transition-all duration-300;
@@ -27,7 +25,6 @@
     @apply outline-none;
   }
 
-  /* Form elements */
   input:not([type="submit"]),
   select,
   option,
@@ -62,7 +59,6 @@
     @apply cursor-pointer inline-flex justify-center items-center border-0;
   }
 
-  /* Media elements */
   img,
   picture,
   video,
@@ -84,7 +80,6 @@
     @apply w-full max-w-full border-collapse;
   }
 
-  /* Headings */
   h1, h2, h3, h4, h5, h6 {
     @apply font-base font-bold;
   }
@@ -114,9 +109,7 @@
   }
 }
 
-/* Component styles */
 @layer components {
-  /* Links */
   a {
     @apply inline-flex text-current no-underline transition-all;
   }
@@ -126,25 +119,10 @@
     @apply text-current;
   }
 
-  /* Clickable cards */
-  .clickable-card:not(a),
-  .clickable-card:not(a) a,
-  a.clickable-card {
-    @apply static;
-  }
-
-  .clickable-card:not(a) > a:after,
-  a.clickable-card:after {
-    @apply absolute inset-0 cursor-pointer flex;
-    content: "";
-  }
-
-  /* Screen reader text */
   .screen-reader-text {
     @apply sr-only;
   }
 
-  /* Skip link */
   .skip {
     @apply absolute top-4 left-4 inline-flex justify-center items-center gap-2 
            w-px h-px p-0 -m-px border-0 bg-transparent text-current 
@@ -159,131 +137,9 @@
     clip: auto;
     clip-path: none;
   }
-
-  /* Card component */
-  .keto-card {
-    @apply flex flex-col relative bg-cover rounded-sm shadow-xl overflow-hidden transition-all duration-300;
-  }
-
-  [class*="__head"] {
-    @apply inline-block w-full h-fit object-cover object-center static m-0;
-  }
-
-  [class*="__head"] picture img {
-    @apply static object-cover object-center transition-all;
-  }
-
-  [class*="__body"] {
-    @apply w-full flex flex-wrap flex-col items-center gap-2 p-s static flex-grow;
-  }
-
-  /* Buttons */
-  .btn {
-    @apply inline-flex justify-center items-center gap-2 px-6 py-4 font-bold 
-           text-inherit text-center leading-none border-2 rounded-sm 
-           cursor-pointer transition-all duration-300 will-change-transform;
-  }
-
-  .btn:hover {
-    @apply transform scale-105;
-  }
-
-  .btn:focus {
-    @apply outline-2 outline-offset-8;
-  }
-
-  .btn-base {
-    @apply btn bg-base border-base text-black;
-  }
-
-  .btn-base:hover {
-    @apply bg-base-300 border-base-300;
-  }
-
-  .btn-base:focus {
-    @apply bg-base-300 border-base-300 outline-base-300;
-  }
-
-  .btn-base:active {
-    @apply bg-base-600;
-  }
-
-  .btn-alt {
-    @apply btn bg-alt border-alt text-white;
-  }
-
-  .btn-alt:hover {
-    @apply bg-alt-300 border-alt-300;
-  }
-
-  .btn-alt:focus {
-    @apply bg-alt-300 border-alt-300 outline-alt-300;
-  }
-
-  .btn-alt:active {
-    @apply bg-alt-600;
-  }
-
-  .btn-action {
-    @apply btn bg-action border-action text-white;
-  }
-
-  .btn-action:hover {
-    @apply bg-action-300 border-action-300;
-  }
-
-  .btn-action:focus {
-    @apply bg-action-300 border-action-300 outline-action-300;
-  }
-
-  .btn-action:active {
-    @apply bg-action-600;
-  }
-
-  /* Forms */
-  .search-form,
-  .wc-search-form,
-  form[role="search"] {
-    @apply w-full max-w-lg inline-block relative;
-  }
-
-  .search-form input[type="search"],
-  .wc-search-form input[type="search"],
-  form[role="search"] input[type="search"] {
-    @apply px-4 w-full border border-gray-300 rounded-lg relative min-h-[2.5em];
-  }
-
-  .search-form button[type="submit"],
-  .wc-search-form button[type="submit"],
-  form[role="search"] button[type="submit"] {
-    @apply px-4 bg-transparent rounded-sm absolute top-0 right-0 min-h-[2.5em];
-  }
-
-  .search-form button[type="submit"]:hover,
-  .wc-search-form button[type="submit"]:hover,
-  form[role="search"] button[type="submit"]:hover {
-    @apply bg-action-50;
-  }
-
-  .search-form button[type="submit"] svg,
-  .wc-search-form button[type="submit"] svg,
-  form[role="search"] button[type="submit"] svg {
-    @apply text-xl;
-  }
-
-  /* Sticky utilities */
-  .sticky-xs {
-    @apply sticky;
-  }
-
-  .sticky-xs.top-xs {
-    @apply top-[5%] p-[5%] border border-gray-300 rounded-sm;
-  }
 }
 
-/* Utility classes */
 @layer utilities {
-  /* Container utilities */
   .container {
     @apply max-w-[136.6rem] w-full mx-auto;
   }
@@ -292,35 +148,6 @@
     @apply max-w-full w-full px-xs mx-auto;
   }
 
-  /* Grid utilities */
-  .grid-1-3 {
-    @apply grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)];
-  }
-
-  /* Spacing utilities */
-  .gap-xs { @apply gap-xs; }
-  .gap-s { @apply gap-s; }
-  .gap-m { @apply gap-m; }
-  .gap-l { @apply gap-l; }
-  .gap-xl { @apply gap-xl; }
-  .gap-2xl { @apply gap-2xl; }
-  .gap-3xl { @apply gap-3xl; }
-  .gap-4xl { @apply gap-4xl; }
-  .gap-5xl { @apply gap-5xl; }
-
-  /* Text utilities */
-  .text-2xs { @apply text-2xs; }
-  .text-xs { @apply text-xs; }
-  .text-s { @apply text-sm; }
-  .text-m { @apply text-base; }
-  .text-l { @apply text-lg; }
-  .text-xl { @apply text-xl; }
-  .text-2xl { @apply text-2xl; }
-  .text-3xl { @apply text-3xl; }
-  .text-4xl { @apply text-4xl; }
-  .text-5xl { @apply text-5xl; }
-
-  /* Animation preferences */
   @media (prefers-reduced-motion: reduce) {
     html:focus-within {
       scroll-behavior: auto;

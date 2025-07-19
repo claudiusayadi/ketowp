@@ -13,19 +13,18 @@
 ?>
 
 </main>
-<footer id="keto-footer" class="bg-cover bg-center flex-shrink-0 mt-auto relative w-full">
+<footer id="site-footer" class="bg-cover bg-center flex-shrink-0 mt-auto relative w-full">
 
-  <section class="footer-widgets py-8">
+  <section class="py-8">
     <div class="container">
       <div class="text-center">Footer Widgets</div>
     </div>
   </section>
-  <section class="copyright py-4 bg-gray-100">
+  <section class="py-4 bg-gray-100">
     <div class="container">
       <div class="text-center text-sm">&copy; 2023</div>
     </div>
   </section>
-
 
   <?php wp_footer(); ?>
 
