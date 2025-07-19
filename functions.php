@@ -110,6 +110,10 @@ require_once get_template_directory() . "/widget.php";
 require_once get_template_directory() . "/woocommerce/woo.php";
 require_once get_template_directory() . "/shortcodes/business.php";
 require_once get_template_directory() . "/inc/cleanup.php";
+require_once get_template_directory() . "/inc/performance.php";
+require_once get_template_directory() . "/inc/security.php";
+require_once get_template_directory() . "/inc/seo.php";
+require_once get_template_directory() . "/inc/ajax-mini.php";
 
 /**
  * Enqueue scripts and styles.
@@ -147,6 +151,68 @@ function ketowp_scripts()
     );
 }
 add_action("wp_enqueue_scripts", "ketowp_scripts");
+
+// Add theme version for cache busting
+function ketowp_get_theme_version() {
+    return wp_get_theme()->get('Version') ?: '1.0.0';
+}
+
+// Optimize performance
+function ketowp_performance_optimizations() {
+    // Remove unnecessary WordPress features
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'rsd_link');
+    
+    // Disable WordPress embeds
+    remove_action('wp_head', 'wp_oembed_add_discovery_links');
+    remove_action('wp_head', 'wp_oembed_add_host_js');
+    
+    // Remove WordPress version from scripts and styles
+    add_filter('style_loader_src', 'ketowp_remove_version_scripts_styles', 9999);
+    add_filter('script_loader_src', 'ketowp_remove_version_scripts_styles', 9999);
+}
+add_action('init', 'ketowp_performance_optimizations');
+
+function ketowp_remove_version_scripts_styles($src) {
+    if (strpos($src, 'ver=')) {
+        $src = remove_query_arg('ver', $src);
+    }
+    return $src;
+}
+
+// Add critical CSS inline for above-the-fold content
+function ketowp_critical_css() {
+    if (is_front_page() || is_shop()) {
+        echo '<style id="critical-css">
+            body { font-family: Inter, sans-serif; }
+            .container { max-width: 1366px; margin: 0 auto; padding: 0 1.2rem; }
+            header { background: white; border-bottom: 1px solid #e5e7eb; }
+            .hero { background: #f9d400; padding: 4rem 0; }
+        </style>';
+    }
+}
+add_action('wp_head', 'ketowp_critical_css', 1);
+
+// Add structured data for SEO
+function ketowp_structured_data() {
+    if (is_front_page()) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => get_bloginfo('name'),
+            'description' => get_bloginfo('description'),
+            'url' => home_url(),
+            'potentialAction' => array(
+                '@type' => 'SearchAction',
+                'target' => home_url('/?s={search_term_string}'),
+                'query-input' => 'required name=search_term_string'
+            )
+        );
+        echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+    }
+}
+add_action('wp_head', 'ketowp_structured_data');
 
 // Dequeue jQuery Migrate
 function dequeue_jquery_migrate($scripts)
