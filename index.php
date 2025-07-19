@@ -15,17 +15,11 @@
  */
 
 get_header(); ?>
-<main id="site-content" class="block flex-1 relative w-full">
+<main id="primary" class="site-main">
 
   <section class="py-8">
     <div class="container">
-      <?php get_template_part("/template-part/content/query"); ?>
-    </div>
-  </section>
-
-  <section class="py-8">
-    <div class="container">
-      <div class="text-center">Categories</div>
+      <?php get_template_part( 'template-parts/content/query' ); ?>
     </div>
   </section>
 

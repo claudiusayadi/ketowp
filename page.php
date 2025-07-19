@@ -11,7 +11,7 @@
 
 get_header(); ?>
 
-<main id="site-content" class="block flex-1 relative w-full">
+<main id="primary" class="site-main">
 <section class="py-8">
   <div class="container">
 
@@ -39,19 +39,13 @@ get_header(); ?>
     <?php endif; ?>
     <?php
         endwhile;
-    else:
-         ?>
+    else : ?>
     <p class="text-center text-gray-500">Nothing to show</p>
     <?php
     endif; ?>
   </div>
 </section>
 
-<section class="py-8">
-  <div class="container">
-    <div class="text-center">Categories</div>
-  </div>
-</section>
 </main>
 
 <?php get_footer(); ?>

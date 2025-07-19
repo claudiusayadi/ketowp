@@ -11,7 +11,7 @@
 
 get_header(); ?>
 
-<main id="site-content" class="block flex-1 relative w-full">
+<main id="primary" class="site-main">
   <section class="py-16">
     <div class="container">
       <div class="text-center max-w-2xl mx-auto">

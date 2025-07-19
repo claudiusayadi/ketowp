@@ -30,108 +30,72 @@
         "ketowp",
     ); ?>
   </a>
+
+  <?php ketowp_notification_bar(); ?>
+
   <header id="site-header">
     <div class="bg-alt/60 text-action-800 hidden md:block">
       <div class="container">
         <div class="grid grid-cols-3 items-center gap-m py-2 text-sm min-h-[3.7rem]">
           <nav aria-label="Social Links">
-            <ul class="flex gap-2">
-              <li>
-                <?php echo do_shortcode("[facebook]"); ?>
-              </li>
-              <li>
-                <?php echo do_shortcode("[instagram]"); ?>
-              </li>
-              <li>
-                <?php echo do_shortcode("[twitter]"); ?>
-              </li>
-              <li>
-                <?php echo do_shortcode("[pinterest]"); ?>
-              </li>
-              <li>
-                <?php echo do_shortcode("[youtube]"); ?>
-              </li>
-            </ul>
+            <?php ketowp_social_links(); ?>
           </nav>
 
-          <p class="justify-self-center">
-            <?php echo get_theme_mod("notification"); ?>
-          </p>
-
-          <div class="justify-self-end flex gap-m">
+          <div class="justify-self-center">
+            <?php ketowp_business_info(); ?>
+          </div>
             <div class="max-w-fit"><?php echo do_shortcode(
                 "[adsw_currency_switcher title=]",
-            ); ?>
-            </div>
-            <nav aria-label="Top Links">
-              <?php wp_nav_menu([
-                  "menu" => "top-links",
-                  "menu_class" => "flex gap-m",
-                  "container" => false,
-                  "fallback_cb" => false,
-                  "theme_location" => "top-links",
+              if ( has_nav_menu( 'secondary' ) ) {
+                wp_nav_menu(
+                  array(
+                    'theme_location' => 'secondary',
+                    'menu_class'     => 'flex gap-4',
+                    'container'      => false,
+                    'fallback_cb'    => false,
+                  )
+                );
+              }
               ]); ?>
             </nav>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="bg-white border-b border-gray-200">
-      <div class="container">
-        <div class="grid grid-cols-2 md:grid-cols-3 items-center gap-m py-4">
-          <?php
-          $site_name = get_bloginfo("name");
-          $description = get_bloginfo("description", "display");
-          $home = esc_url(home_url("/"));
-
-          if (has_custom_logo()): ?>
-          <figure class="max-w-48 overflow-hidden">
-            <picture>
-              <?php the_custom_logo(); ?>
-              <figcaption class="screen-reader-text">Home</figcaption>
-            </picture>
-          </figure>
-
-          <?php else: ?>
-          <div>
-            <h3><?php echo $site_name; ?></h3>
+            <?php ketowp_site_branding(); ?>
             <p><?php echo $description; ?></p>
             <figcaption class="screen-reader-text">Home</figcaption>
           </div>
           <?php endif;
-          ?>
-
-          <nav class="hidden md:block justify-self-center" aria-label="Main Menu">
-            <?php wp_nav_menu([
-                "menu" => "main-menu",
-                "menu_class" => "flex items-center gap-xl p-0 m-0",
-                "container" => false,
-                "fallback_cb" => false,
-                "theme_location" => "main-menu",
+            if ( has_nav_menu( 'primary' ) ) {
+              wp_nav_menu(
+                array(
+                  'theme_location' => 'primary',
+                  'menu_class'     => 'flex items-center gap-6 p-0 m-0',
+                  'container'      => false,
+                  'fallback_cb'    => false,
+                )
+              );
+            }
             ]); ?>
           </nav>
 
           <nav class="hidden md:block justify-self-end" aria-label="User Menu">
             <ul class="flex items-center gap-m">
               <li>
-                <?php get_product_search_form(); ?>
+                <?php 
+                if ( ketowp_is_woocommerce_activated() ) {
+                  get_product_search_form();
+                } else {
+                  get_search_form();
+                }
+                ?>
               </li>
+              <?php if ( ketowp_is_woocommerce_activated() ) : ?>
               <li>
                 <a href="<?php echo esc_url(
-                    wc_get_cart_url(),
-                ); ?>" aria-label="<?php _e("Mini Cart"); ?>" title="<?php _e(
-    "Mini Cart",
-); ?>" class="relative">
-                  <span>
-                    <strong class="relative inline-block border-2 border-action rounded-xs font-bold font-sans text-center align-middle w-7 h-7 leading-6 after:absolute after:left-1/2 after:bottom-full after:content-[''] after:h-2 after:w-4 after:mb-0 after:-ml-2 after:border-2 after:border-action after:rounded-full after:border-b-0 after:border-b-transparent after:pointer-events-none after:transition-all hover:bg-action hover:text-white hover:after:h-4">
-                      <span class="cart-count">
-                        <?php echo WC()->cart->get_cart_contents_count(); ?>
-                      </span>
-                    </strong>
-                  </span>
-                </a>
+                <?php ketowp_woocommerce_header_cart(); ?>
               </li>
+              <?php endif; ?>
             </ul>
           </nav>
 
@@ -146,3 +110,4 @@
       </div>
     </div>
   </header>
+  
